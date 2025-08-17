@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About — Alvi</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <div class="bg-aurora"></div>
+  <canvas id="bg-particles"></canvas>
+
+  <header class="header">
+    <a class="brand" href="index.html">Alvi Hossain</a>
+    <div class="container nav-row">
+      <div class="right-group">
+        <button id="themeToggle" class="icon-btn" aria-label="Toggle theme"></button>
+        <nav class="nav" aria-label="Primary">
+          <a href="about.html" class="btn">About</a>
+          <a href="projects.html" class="btn">Projects</a>
+          <a href="professional.html" class="btn">Professional</a>
+          <a href="contacts.html" class="btn">Contacts</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="container section">
+  <header class="section-head">
+    <h1 class="title">About</h1>
+    <div class="title-underline"></div>
+    <p class="subtitle">Get to know me, browse skills, or grab a résumé.</p>
+  </header>
+
+  <div class="social-grid about-grid">
+    <a class="social-card" href="about-me.html" style="--d:0ms">
+      <div class="social-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 12a5 5 0 100-10 5 5 0 000 10zm0 2c-4.4 0-8 2.2-8 5v1h16v-1c0-2.8-3.6-5-8-5z"/></svg>
+      </div>
+      <div class="social-label">About me</div>
+    </a>
+
+    <a class="social-card" href="skills.html" style="--d:80ms">
+      <div class="social-icon">
+        <svg viewBox="0 0 24 24"><path d="M5 3l1.5 3.5L10 8 6.5 9.5 5 13 3.5 9.5 0 8l3.5-1.5L5 3zm14 8l2 4 4 2-4 2-2 4-2-4-4-2 4-2 2-4z"/></svg>
+      </div>
+      <div class="social-label">Skills</div>
+    </a>
+
+    <a class="social-card" href="resume.html" style="--d:160ms">
+      <div class="social-icon">
+        <svg viewBox="0 0 24 24"><path d="M6 2h8l4 4v14a2 2 0 01-2 2H6a2 2 0 01-2-2V4a2 2 0 012-2zm7 1.5V7h3.5L13 3.5zM8 11h8v2H8v-2zm0 4h8v2H8v-2z"/></svg>
+      </div>
+      <div class="social-label">Résumé</div>
+    </a>
+
+    <a class="social-card" href="study.html" style="--d:240ms">
+      <div class="social-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 3l10 5-10 5L2 8l10-5zm0 7l6.5-3.25V13c0 2.9-4.33 4.5-6.5 4.5S5.5 15.9 5.5 13V6.75L12 10z"/></svg>
+      </div>
+      <div class="social-label">Study</div>
+    </a>
+  </div>
+</main>
+
+
+  <!-- Chat widget -->
+  <div id="chatbot" class="chatbot">
+    <button id="chatToggle" class="chat-fab" aria-label="Open chat">
+      <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+        <path d="M12 3a9 9 0 00-9 9 9 9 0 0014.25 7.4l3.75 1-1-3.75A9 9 0 0012 3zM8 11h8M8 15h5"
+              fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+    <div class="chat-window" hidden>
+      <div class="chat-header">
+        <strong>AlviBot</strong>
+        <button id="chatClose" type="button" class="chat-close" aria-label="Close chat" title="Close (Esc)">✕</button>
+      </div>
+      <div id="chatLog" class="chat-log" aria-live="polite"></div>
+      <form id="chatForm" class="chat-form" autocomplete="off">
+        <input id="chatInput" class="chat-input" type="text" placeholder="Ask me anything…" />
+        <button class="chat-send" aria-label="Send">Send</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <h3>Alvi Hossain Himaloy</h3>
+        <p>I blend AI research with full-stack craft to turn complex data into simple, useful products—built with care, performance, and accessibility in mind.</p>
+      </div>
+      <div>
+        <h4 class="footer-head">Quick Links</h4>
+        <div class="underline"></div>
+        <ul class="footer-ul">
+          <li><a href="about.html">→ About</a></li>
+          <li><a href="projects.html">→ Projects</a></li>
+          <li><a href="professional.html">→ Professional</a></li>
+          <li><a href="contacts.html">→ Contacts</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-head">Connect</h4>
+        <div class="underline"></div>
+        <ul class="footer-ul">
+          <li><a href="https://github.com/ah-himaloy" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href="https://www.linkedin.com/in/alvi-hossain-safri-himalya/" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://www.facebook.com/alvihossain1086" target="_blank" rel="noopener">Facebook</a></li>
+          <li><a href="https://www.instagram.com/ah_himaloy/" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="mailto:alvihossain1086@gmail.com">Email</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bar">
+      <span>© 2025 Alvi Hossain Himaloy. Designed &amp; developed by me — with clean code, curiosity, and a bias for shipping.</span>
+      <span>Privacy Policy · Terms</span>
+    </div>
+  </footer>
+</body>
+</html>

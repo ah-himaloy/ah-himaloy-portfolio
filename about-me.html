@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About me — Alvi</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <!-- Background layers -->
+  <div class="bg-aurora"></div>
+  <canvas id="bg-particles"></canvas>
+
+  <!-- Header -->
+  <header class="header">
+    <a class="brand" href="index.html">Alvi Hossain</a>
+    <div class="container nav-row">
+      <div class="right-group">
+        <button id="themeToggle" class="icon-btn" aria-label="Toggle theme"></button>
+        <nav class="nav" aria-label="Primary">
+          <a href="about.html" class="btn">About</a>
+          <a href="projects.html" class="btn">Projects</a>
+          <a href="professional.html" class="btn">Professional</a>
+          <a href="contacts.html" class="btn">Contacts</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+  
+  
+  
+  
+  
+  
+  
+
+  <!-- Main -->
+  <main class="container section">
+    <!-- Back link to the hub -->
+    <p style="margin:0 0 8px">
+      <a class="back-link" href="about.html" aria-label="Back to About">
+        <svg viewBox="0 0 24 24" width="18" height="18" style="vertical-align:-3px;margin-right:6px" aria-hidden="true">
+          <path d="M15 18l-6-6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Back to About
+      </a>
+    </p>
+
+   <header class="section-head">
+    <h1 class="title">About Me </h1>
+    <div class="title-underline"></div>
+    <p class="lead">
+      I’m <strong>Alvi Hossain Himaloy</strong> — a Full-stack Developer and
+      <strong>AI &amp; Data Analytics Researcher</strong>. I build fast, accessible web products
+      and use data + ML to make them smarter, more helpful, and a little more delightful every week.
+    </p>
+
+    <!-- Who I am -->
+    <section class="section" style="padding-top:24px">
+      <h2 class="h2">Who I am</h2>
+      <p class="lead">
+        I’ve always been the person who asks, “why is this slow?” and then opens an editor. That habit
+        led me through a <strong>BCS (AI) at Swinburne University of Technology</strong> and into a
+        <strong>Master of Research (Data Analytics) at MIT Melbourne</strong>. Along the way, I’ve shipped
+        production features, built internal tools that saved teams hours per week, and explored how ML can
+        improve real products — from ranking and recommendations to clean, human-friendly dashboards.
+      </p>
+    </section>
+
+    <!-- What I do -->
+    <section class="section" style="padding-top:16px">
+      <h2 class="h2">What I do</h2>
+      <ul class="lead bullets">
+        <li><strong>Build web apps end-to-end:</strong> modern front-end UX, robust APIs, databases, auth, CI/CD, and cloud deploys.</li>
+        <li><strong>Make data useful:</strong> analytics pipelines, event tracking, dashboards, experimentation, and measurable KPIs.</li>
+        <li><strong>Add intelligent features:</strong> search, recommendations, NLP/classification, LLM-assisted flows.</li>
+        <li><strong>Harden the product:</strong> performance, accessibility, reliability, and simple docs your team will actually read.</li>
+      </ul>
+    </section>
+
+    <!-- How I work -->
+    <section class="section" style="padding-top:16px">
+      <h2 class="h2">How I work</h2>
+      <ul class="lead bullets">
+        <li><strong>Outcome-first:</strong> start from the user journey, define “done”, instrument, then ship.</li>
+        <li><strong>Small bets:</strong> MVP fast, learn fast. If it works, scale it; if not, prune it.</li>
+        <li><strong>Craft + clarity:</strong> clean code, thoughtful UX, accessibility by default, and clear communication.</li>
+      </ul>
+    </section>
+
+    <!-- Toolbox -->
+    <section class="section" style="padding-top:16px">
+      <h2 class="h2">Toolbox I reach for</h2>
+      <p class="lead">
+        TypeScript, React, Next.js, Tailwind, Node/Nest, Python (pandas, scikit-learn), REST/GraphQL,
+        PostgreSQL/MySQL, Redis, Docker, CI/CD, GitHub Actions, and cloud (Vercel/Netlify/Render/AWS).
+        For ML/analytics: tidy datasets, notebooks, careful evaluation, and pragmatic MLOps.
+      </p>
+    </section>
+
+    <!-- What you can expect -->
+    <section class="section" style="padding-top:16px">
+      <h2 class="h2">What you can expect from me</h2>
+      <ul class="lead bullets">
+        <li><strong>Production-ready delivery:</strong> not just a demo — secure, tested, documented, deployed.</li>
+        <li><strong>Performance you can feel:</strong> snappy UI, sensible caching, and strong Lighthouse scores.</li>
+        <li><strong>Accessible experiences:</strong> keyboard-friendly, screen-reader aware, inclusive by design.</li>
+        <li><strong>Honest iteration:</strong> decisions backed by data, tight feedback loops, and clear trade-offs.</li>
+      </ul>
+    </section>
+
+    <!-- Now / Open to -->
+    <section class="section" style="padding-top:16px">
+      <h2 class="h2">Currently</h2>
+      <p class="lead">
+        Exploring LLM-powered developer tools and AI features that make real user journeys faster and simpler.
+        I’m open to <strong>full-time roles</strong>, <strong>research collaborations</strong>, and
+        <strong>select freelance</strong> projects where outcomes matter.
+      </p>
+    </section>
+
+    <!-- CTA -->
+    <section class="section" style="padding-top:16px">
+      <h2 class="h2">Let’s build something useful</h2>
+      <p class="lead">
+        If your team needs a builder who can design, code, and reason with data,
+        <a href="contacts.html">reach out</a>. I’ll bring calm focus, clear communication, and software that ships.
+      </p>
+    </section>
+  </main>
+
+  <!-- Chat widget -->
+  <div id="chatbot" class="chatbot">
+    <button id="chatToggle" class="chat-fab" aria-label="Open chat">
+      <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+        <path d="M12 3a9 9 0 00-9 9 9 9 0 0014.25 7.4l3.75 1-1-3.75A9 9 0 0012 3zM8 11h8M8 15h5"
+              fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+    <div class="chat-window" hidden>
+      <div class="chat-header">
+        <strong>AlviBot</strong>
+        <button id="chatClose" type="button" class="chat-close" aria-label="Close chat" title="Close (Esc)">✕</button>
+      </div>
+      <div id="chatLog" class="chat-log" aria-live="polite"></div>
+      <form id="chatForm" class="chat-form" autocomplete="off">
+        <input id="chatInput" class="chat-input" type="text" placeholder="Ask me anything…" />
+        <button class="chat-send" aria-label="Send">Send</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <h3>Alvi Hossain Himaloy</h3>
+        <p>I blend AI research with full-stack craft to turn complex data into simple, useful products—built with care, performance, and accessibility in mind.</p>
+      </div>
+      <div>
+        <h4 class="footer-head">Quick Links</h4>
+        <div class="underline"></div>
+        <ul class="footer-ul">
+          <li><a href="about.html">→ About</a></li>
+          <li><a href="projects.html">→ Projects</a></li>
+          <li><a href="professional.html">→ Professional</a></li>
+          <li><a href="contacts.html">→ Contacts</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-head">Connect</h4>
+        <div class="underline"></div>
+        <ul class="footer-ul">
+          <li><a href="https://github.com/ah-himaloy" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href="https://www.linkedin.com/in/alvi-hossain-safri-himalya/" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://www.facebook.com/alvihossain1086" target="_blank" rel="noopener">Facebook</a></li>
+          <li><a href="https://www.instagram.com/ah_himaloy/" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="mailto:alvihossain1086@gmail.com">Email</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bar">
+      <span>© 2025 Alvi Hossain Himaloy. Designed &amp; built by me.</span>
+      <span>Privacy Policy · Terms</span>
+    </div>
+  </footer>
+</body>
+</html>

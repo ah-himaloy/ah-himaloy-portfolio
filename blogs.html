@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Blogs — Alvi</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <!-- Backgrounds -->
+  <div class="bg-aurora"></div>
+  <canvas id="bg-particles"></canvas>
+
+  <!-- Header -->
+  <header class="header">
+    <a class="brand" href="index.html">Alvi Hossain</a>
+    <div class="container nav-row">
+      <div class="right-group">
+        <button id="themeToggle" class="icon-btn" aria-label="Toggle theme"></button>
+        <nav class="nav" aria-label="Primary">
+          <a href="about.html" class="btn">About</a>
+          <a href="projects.html" class="btn">Projects</a>
+          <a href="professional.html" class="btn">Professional</a>
+          <a href="blogs.html" class="btn active">Blogs</a>
+          <a href="contacts.html" class="btn">Contacts</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="container section">
+  <a class="back-link" href="professional.html">
+      <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Back to Professional
+    </a>
+    <!-- Page header -->
+    <header class="section-head">
+      <h1 class="title">Blogs</h1>
+      <div class="title-underline"></div>
+      <p class="subtitle">Notes on AI/ML, web dev, and things I’m building/learning.</p>
+    </header>
+
+    <!-- Filters -->
+    <div class="about-tabs" style="justify-content:center; gap:12px; margin-top:0;">
+      <input id="blogSearch" class="chat-input" placeholder="Search posts…" style="max-width:420px;">
+      <button class="tab-btn active" data-tag="all">All</button>
+      <button class="tab-btn" data-tag="ai">AI / ML</button>
+      <button class="tab-btn" data-tag="web">Web Dev</button>
+      <button class="tab-btn" data-tag="personal">Personal</button>
+    </div>
+
+    
+  </main>
+
+  <!-- Chat widget (unchanged) -->
+  <div id="chatbot" class="chatbot">
+    <button id="chatToggle" class="chat-fab" aria-label="Open chat">
+      <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+        <path d="M12 3a9 9 0 00-9 9 9 9 0 0014.25 7.4l3.75 1-1-3.75A9 9 0 0012 3zM8 11h8M8 15h5"
+              fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+    <div class="chat-window" hidden>
+      <div class="chat-header">
+        <strong>AlviBot</strong>
+        <button id="chatClose" type="button" class="chat-close" aria-label="Close chat" title="Close (Esc)">✕</button>
+      </div>
+      <div id="chatLog" class="chat-log" aria-live="polite"></div>
+      <form id="chatForm" class="chat-form" autocomplete="off">
+        <input id="chatInput" class="chat-input" type="text" placeholder="Ask me anything…" />
+        <button class="chat-send" aria-label="Send">Send</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <h3>Alvi Hossain Himaloy</h3>
+        <p>I blend AI research with full-stack craft to turn complex data into simple, useful products—built with care, performance, and accessibility in mind.</p>
+      </div>
+      <div>
+        <h4 class="footer-head">Quick Links</h4>
+        <div class="underline"></div>
+        <ul class="footer-ul">
+          <li><a href="about.html">→ About</a></li>
+          <li><a href="projects.html">→ Projects</a></li>
+          <li><a href="professional.html">→ Professional</a></li>
+          <li><a href="blogs.html">→ Blogs</a></li>
+          <li><a href="contacts.html">→ Contacts</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-head">Connect</h4>
+        <div class="underline"></div>
+        <ul class="footer-ul">
+          <li><a href="https://github.com/ah-himaloy" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href="https://www.linkedin.com/in/alvi-hossain-safri-himalya/" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://www.facebook.com/alvihossain1086" target="_blank" rel="noopener">Facebook</a></li>
+          <li><a href="https://www.instagram.com/ah_himaloy/" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="mailto:alvihossain1086@gmail.com">Email</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bar">
+      <span>© 2025 Alvi Hossain Himaloy. Designed &amp; developed by me — with clean code, curiosity, and a bias for shipping.</span>
+      <span>Privacy Policy · Terms</span>
+    </div>
+  </footer>
+
+  <!-- Page-local script: search + tag filter (tiny, no conflicts) -->
+  <script>
+    (function(){
+      const search = document.getElementById('blogSearch');
+      const grid   = document.getElementById('blogGrid');
+      const cards  = [...grid.querySelectorAll('.project-card')];
+      const tagBtns= [...document.querySelectorAll('.about-tabs .tab-btn')];
+      let activeTag = 'all';
+
+      function applyFilter(){
+        const q = (search?.value || '').trim().toLowerCase();
+        cards.forEach(card => {
+          const inTag = activeTag === 'all' || (card.dataset.tags || '').includes(activeTag);
+          const text  = card.innerText.toLowerCase();
+          const show  = inTag && (!q || text.includes(q));
+          card.style.display = show ? '' : 'none';
+        });
+      }
+
+      search?.addEventListener('input', applyFilter);
+      tagBtns.forEach(btn=>{
+        btn.addEventListener('click', ()=>{
+          tagBtns.forEach(b=>b.classList.remove('active'));
+          btn.classList.add('active');
+          activeTag = btn.dataset.tag;
+          applyFilter();
+        });
+      });
+
+      applyFilter();
+    })();
+  </script>
+</body>
+</html>
