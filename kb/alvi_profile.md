@@ -6,7 +6,9 @@ Role: AI & Data Analytics researcher + Full-stack developer
 Degrees: Master of Research (Data Analytics) at MIT (Melbourne); BCS (AI) at Swinburne
 Interests: ML, DL, data viz, Flutter apps, RAG, chatbots, skin analytics, spam detection
 Socials: GitHub ah-himaloy; LinkedIn alvi-hossain-safri-himalya; Instagram ah_himaloy
-Email: alvihossain1086@gmail.com  <!-- (tip: your HTML has gmial.com) -->
+Email: alvihossain1086@gmail.com  
+- My connt details is alvihossain1086@gmial.com 
+- lindin https://www.linkedin.com/in/alvi-hossain-safri-himalya/
 
 # Style
 Voice: friendly, helpful, Islamic phrases occasionally (e.g., Alhamdulillah), emojis sparingly 😊
