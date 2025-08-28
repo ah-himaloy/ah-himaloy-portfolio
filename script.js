@@ -314,3 +314,22 @@ document.querySelectorAll("[data-modal]").forEach((card) => {
   `;
   document.head.appendChild(style);
 })();
+
+
+
+
+
+const btn = document.getElementById('menuBtn');      // your 3-dot / hamburger
+const drawer = document.getElementById('drawer');
+const backdrop = document.getElementById('backdrop');
+
+function openDrawer(open) {
+  document.body.classList.toggle('drawer-open', open);
+  drawer.setAttribute('aria-hidden', String(!open));
+}
+
+btn?.addEventListener('click', () => {
+  openDrawer(!document.body.classList.contains('drawer-open'));
+});
+backdrop?.addEventListener('click', () => openDrawer(false));
+window.addEventListener('keydown', e => { if (e.key === 'Escape') openDrawer(false); });
