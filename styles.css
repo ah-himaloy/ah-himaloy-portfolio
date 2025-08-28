@@ -957,3 +957,42 @@ details.xp-details[open] summary::after{
     bottom: calc(84px + env(safe-area-inset-bottom)); /* above iOS toolbar */
   }
 }
+
+
+/* Mobile drawer fix */
+.drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.55);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s ease;
+  z-index: 1100;                 /* <-- above page */
+}
+
+.drawer {
+  position: fixed;
+  top: 0;
+  right: -280px;                 /* hidden off-screen */
+  height: 100vh;
+  width: 280px;
+  background: #0f1115;           /* readable on dark */
+  color: #fff;
+  padding: 16px;
+  overflow-y: auto;
+  border-left: 1px solid rgba(255,255,255,.08);
+  box-shadow: -12px 0 28px rgba(0,0,0,.45);
+  transition: right .25s ease;
+  z-index: 1200;                 /* <-- above backdrop & hero */
+}
+
+/* When open */
+.drawer-open .drawer       { right: 0; }
+.drawer-open .drawer-backdrop { opacity: 1; pointer-events: auto; }
+
+/* Prevent background scrolling when drawer is open */
+body.drawer-open { overflow: hidden; }
+
+/* Make sure hero overlays never cover the drawer */
+.hero, .hero * { z-index: auto; }
+.hero::before, .hero::after { z-index: 0 !important; }
