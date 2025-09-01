@@ -1043,102 +1043,50 @@ body.drawer-open { overflow: hidden; }
 
 
 
+/* === Only the drawer buttons are white === */
 
-/* colors you can tweak project-wide */
-:root{
-  --bg: #0f1115;         /* drawer background */
-  --text: #e7e9ee;       /* drawer text */
-  --muted: #aab2c0;
-  --accent: #3ba2ff;     /* hover underline only */
-  --border: rgba(255,255,255,.08);
-}
-
-/* backdrop darker & not blue */
-.drawer-backdrop{
-  position: fixed; inset: 0;
-  background: rgba(0,0,0,.60);   /* darker, no blue tint */
-  opacity: 0; pointer-events: none;
-  transition: opacity .22s ease;
-  z-index: 1200;
-}
-.mobile-drawer.open .drawer-backdrop{ opacity: 1; pointer-events: auto; }
-
-/* top-sheet panel */
-.drawer-panel{
-  position: fixed; left: 0; right: 0; top: 0;
-  width: 100%; max-height: 62vh;
-  background: var(--bg);
-  color: var(--text);
-  box-shadow: 0 12px 28px rgba(0,0,0,.35);
-  border-bottom: 1px solid var(--border);
-  padding: 16px 18px 18px;
-  display: flex; flex-direction: column; gap: 10px;
-  transform: translateY(-100%);
-  transition: transform .25s ease;
-  z-index: 1210;
-}
-.mobile-drawer.open .drawer-panel{ transform: translateY(0); }
-
-/* close (✕) button */
-.drawer-close{
-  align-self: flex-end;
-  background: transparent; border: 0;
-  color: var(--muted);
-  font-size: 22px; line-height: 1; cursor: pointer;
-}
-.drawer-close:hover{ color: var(--text); }
-
-/* menu links: neutral color, no “blue link” */
-.drawer-link{
-  color: var(--text);
-  text-decoration: none;
-  display: block;
-  padding: 12px 6px;
-  border-radius: 10px;
-  font-size: 16px;
-}
-.drawer-link:hover{
-  background: rgba(255,255,255,.05);
-  text-decoration: underline;
-  text-decoration-color: var(--accent);
-  text-underline-offset: 3px;
-}
-
-/* optional: separate the drawer from content with a hairline */
-@media (max-width: 768px){
-  .drawer-panel{ border-bottom: 1px solid var(--border); }
-}
-
-
-
-
-
-/* Make ONLY the hamburger menu button white (both themes) */
+/* Hamburger toggle in the header */
 .menu-btn{
   background: #fff !important;
-  color: #0b0b0b !important;      /* button text/icon color */
-  border: 1px solid rgba(0,0,0,.12) !important;
+  color: #0b0b0b !important;               /* icon color */
+  border: 1px solid rgba(0,0,0,.15) !important;
   box-shadow: 0 6px 18px rgba(0,0,0,.15);
 }
 :root.dark .menu-btn{
-  background: #fff !important;    /* stay white in dark mode too */
+  background: #fff !important;             /* stay white in dark theme */
   color: #0b0b0b !important;
-  border-color: rgba(0,0,0,.18) !important;
+  border-color: rgba(0,0,0,.22) !important;
 }
-
-/* Ensure the SVG actually uses the button’s color (not var(--text)) */
+/* ensure the SVG in the button uses the button color, not var(--text) */
 .menu-btn svg{
   color: currentColor !important;
   fill: currentColor !important;
 }
-
-/* Keep it white on hover/active */
-.menu-btn:hover{ 
-  background: #fff !important; 
+.menu-btn:hover{
+  background: #fff !important;             /* keep white on hover */
   border-color: rgba(0,0,0,.28) !important;
   transform: translateY(-1px);
 }
 .menu-btn:active{
   transform: translateY(0);
   box-shadow: 0 4px 12px rgba(0,0,0,.12);
+}
+
+/* Drawer “cancel/close” (✕) button */
+.drawer-close{
+  background: #fff !important;
+  color: #0b0b0b !important;
+  border: 1px solid rgba(0,0,0,.15) !important;
+  border-radius: 10px;                      /* keep your current shape */
+  width: 32px; height: 32px;                /* optional: make it a neat square */
+  box-shadow: 0 6px 16px rgba(0,0,0,.15);
+}
+:root.dark .drawer-close{
+  background: #fff !important;
+  color: #0b0b0b !important;
+  border-color: rgba(0,0,0,.22) !important;
+}
+.drawer-close:hover{
+  background: #fff !important;              /* don’t turn blue/grey on hover */
+  border-color: rgba(0,0,0,.28) !important;
 }
