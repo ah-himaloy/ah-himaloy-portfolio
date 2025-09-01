@@ -319,3 +319,65 @@ document.querySelectorAll("[data-modal]").forEach((card) => {
 
 
 
+
+
+// --- Chat greeting toast (auto popup once per session) ---
+(() => {
+  const root = document.getElementById('chatbot');
+  if (!root) return;
+
+  const chatBtn = document.getElementById('chatToggle');
+  const chatWin = root.querySelector('.chat-window');
+  const chatLog = document.getElementById('chatLog');
+
+  function showToast() {
+    let t = root.querySelector('.chat-toast');
+    if (!t) {
+      t = document.createElement('div');
+      t.className = 'chat-toast';
+      t.innerHTML = `
+        <button class="toast-close" aria-label="Dismiss">✕</button>
+        <strong>Hi! I’m AlviBot.</strong> A virtual version of Alvi.
+        Ask me anything related to me.
+      `;
+      root.appendChild(t);
+      // open animation
+      requestAnimationFrame(() => t.classList.add('open'));
+    } else {
+      t.classList.add('open');
+    }
+  }
+  function hideToast() {
+    const t = root.querySelector('.chat-toast');
+    if (t) {
+      t.classList.remove('open');
+      setTimeout(() => t.remove(), 180);
+    }
+  }
+
+  // show once per session (after a brief delay)
+  if (!sessionStorage.getItem('alvi_greeted')) {
+    setTimeout(() => {
+      showToast();
+      sessionStorage.setItem('alvi_greeted', '1');
+    }, 1200);
+  }
+
+  // clicking the FAB or close button hides the toast
+  chatBtn?.addEventListener('click', () => {
+    hideToast();
+    // seed first bot message inside the chat (only if empty)
+    if (chatLog && chatLog.children.length === 0) {
+      const m = document.createElement('div');
+      m.className = 'msg bot';
+      m.textContent = "Hi! I’m AlviBot. A virtual version of Alvi. Ask me anything related to me.";
+      chatLog.appendChild(m);
+    }
+  });
+  root.addEventListener('click', (e) => {
+    if ((e.target as HTMLElement).closest('.toast-close')) hideToast();
+  });
+  root.querySelector('#chatClose')?.addEventListener('click', hideToast);
+})();
+
+
