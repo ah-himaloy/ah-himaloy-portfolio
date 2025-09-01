@@ -10,35 +10,40 @@
 <body>
   <div class="bg-aurora"></div><canvas id="bg-particles"></canvas>
 
-  <header class="header">
-    <a class="brand" href="index.html">Alvi Hossain</a>
-    <div class="container nav-row">
-      <div class="right-group">
-        <button id="themeToggle" class="icon-btn" aria-label="Toggle theme"></button>
-        <nav class="nav" aria-label="Primary">
-          <a href="about.html" class="btn">About</a>
-          <a href="projects.html" class="btn">Projects</a>
-          <a href="professional.html" class="btn active">Professional</a>
-          <a href="contacts.html" class="btn">Contacts</a>
-        </nav>
-      </div>
+     <!-- Header -->
+ <header class="header">
+  <a class="brand" href="index.html">Alvi Hossain</a>
+
+  <div class="container nav-row">
+    <div class="right-group">
+      <button id="themeToggle" class="icon-btn" aria-label="Toggle theme"></button>
+
+      <!-- Desktop nav -->
+      <nav class="nav desktop-nav" aria-label="Primary">
+        <a href="About.html" class="btn">About</a>
+        <a href="projects.html" class="btn">Projects</a>
+        <a href="professional.html" class="btn">Professional</a>
+        <a href="contacts.html" class="btn">Contacts</a>
+      </nav>
+
+      <!-- Mobile menu button -->
+      <button id="menuBtn" class="icon-btn menu-btn"
+              aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false">☰</button>
     </div>
-  </header>
+  </div>
+</header>
 
-  <main class="container section">
-    <a class="back-link" href="professional.html">
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M15 18l-6-6 6-6" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round" />
-      </svg>
-      Back to Professional
-    </a>
-
-    <header class="section-head">
-      <h1 class="title">Work Experience</h1>
-      <div class="title-underline"></div>
-      <p class="subtitle">Roles, responsibilities, and impact.</p>
-    </header>
+<!-- Mobile drawer (hidden by default) -->
+<div id="mobileMenu" class="mobile-drawer" hidden>
+  <div class="drawer-backdrop" data-close></div>
+  <nav class="drawer-panel" role="dialog" aria-modal="true" aria-label="Mobile">
+    <button class="drawer-close" data-close aria-label="Close">✕</button>
+    <a href="work-experience.html" class="drawer-link">Work Experiences</a>
+    <a href="projects.html" class="drawer-link">Projects</a>
+    <a href="blogs.html" class="drawer-link">Blogs</a>
+    <a href="contacts.html" class="drawer-link">Contacts</a>
+  </nav>
+</div>
 
     <!-- NEW soft panel + timeline -->
     <section class="page-panel">

@@ -244,9 +244,12 @@ document.querySelectorAll("[data-modal]").forEach((card) => {
   const toggle= document.getElementById("chatToggle");
   const close = document.getElementById("chatClose");
   if (!win || !log || !form || !input || !toggle) return;
+  
+  
+ 
 
   // POINT THIS TO YOUR API (change after you deploy)
-  const API = "http://127.0.0.1:8000/ask";
+ const API = "https://ah-himaloy-portfolio.onrender.com/ask";
 
   function add(role, html){
     const d = document.createElement("div");
@@ -259,7 +262,7 @@ document.querySelectorAll("[data-modal]").forEach((card) => {
 
   function greetOnce(){
     if (log.dataset.greeted) return;
-    add("bot", `Hi! I’m <b>Alphibot</b>. Ask me anything (I’ll use Alvi’s profile + notes).`);
+    add("bot", `Hi! I’m <b>Alvibot </b>. A virtual version of Alvi Ask me anything, related myself `);
     log.dataset.greeted = "1";
   }
   function openChat(){ win.hidden=false; requestAnimationFrame(()=>win.classList.add("open")); greetOnce(); }
@@ -311,3 +314,8 @@ document.querySelectorAll("[data-modal]").forEach((card) => {
   `;
   document.head.appendChild(style);
 })();
+
+
+
+
+

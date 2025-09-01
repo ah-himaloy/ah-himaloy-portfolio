@@ -816,3 +816,226 @@ details.xp-details[open] summary::after{
   .desktop-nav { display: none; }
   .menu-btn { display: inline-flex; align-items:center; justify-content:center; width: 40px; height: 40px; }
 }
+
+
+
+/* ---- Chat polish (small, drop-in override) ---- */
+.chat-window{
+  background: color-mix(in oklab, var(--bg) 92%, transparent);  /* more solid for contrast */
+  box-shadow: 0 24px 60px rgba(0,0,0,.45);
+  border-radius: 18px;
+}
+
+.chat-log{
+  padding: 14px;                 /* a bit roomier */
+}
+
+.chat-form{
+  gap: 10px;
+  padding: 12px;
+  background: color-mix(in oklab, var(--bg) 85%, transparent); /* separate from page */
+  border-top: 1px solid var(--border);
+}
+
+.chat-input{
+  border: 1px solid var(--btn-border);
+  background: color-mix(in oklab, var(--bg) 92%, transparent);
+  color: var(--text);
+  padding: 12px 14px;
+  border-radius: 14px;
+}
+
+.chat-send{
+  padding: 12px 16px;
+  border-radius: 14px;
+  border: 1px solid transparent;
+  background: var(--accent);     /* make the button visible */
+  color: #fff; font-weight: 700;
+  box-shadow: 0 10px 24px rgba(59,130,246,.35);
+  cursor: pointer;
+}
+.chat-send:hover{ transform: translateY(-1px); }
+.chat-send:active{ transform: translateY(0); }
+.chat-send:disabled{ opacity: .55; cursor: not-allowed; }
+
+
+
+
+
+
+
+
+
+/* =========================
+   MOBILE FIXES (<= 768px)
+   ========================= */
+@media (max-width: 768px) {
+
+  /* 1) Keep header clean: brand + tabs don’t collide */
+  header .brand {
+    font-size: 20px;
+    letter-spacing: .2px;
+    margin-right: 8px;
+    flex: 0 0 auto;
+  }
+  /* make the nav “pills” horizontally scrollable instead of wrapping/overlapping */
+  .nav-pills {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .nav-pills::-webkit-scrollbar { display: none; }
+
+  /* give the header a tiny bit more padding so content doesn't tuck under it */
+  header {
+    padding-inline: 10px;
+  }
+
+  /* 2) Hero area: shrink title and portrait so they don’t overlap */
+  .hero {
+    display: block;               /* stack instead of side-by-side */
+    text-align: center;
+    padding-top: 18px;
+  }
+  .hero-title {
+    font-size: clamp(28px, 6vw, 40px);
+    line-height: 1.15;
+    margin: 8px auto 10px;
+    max-width: 12ch;
+  }
+  .hero-subtitle {
+    font-size: clamp(14px, 3.6vw, 16px);
+    line-height: 1.4;
+    margin: 0 auto 16px;
+    max-width: 36ch;
+    opacity: .9;
+  }
+  /* portrait ring */
+  .hero-photo {
+    width: min(64vw, 300px);
+    height: auto;
+    margin: 0 auto 16px;
+  }
+
+  /* if you have a left/right gradient slice in the hero, hide it on mobile */
+  .hero-split,
+  .hero-slice {
+    display: none;
+  }
+
+  /* 3) Section titles / cards—tighten spacing so nothing pushes into each other */
+  .section-title {
+    font-size: clamp(22px, 5.2vw, 30px);
+    line-height: 1.2;
+    margin: 26px 0 14px;
+  }
+  .section-lead {
+    font-size: clamp(14px, 3.6vw, 16px);
+    margin-bottom: 18px;
+  }
+
+  /* grids -> single column on small screens */
+  .grid-2, .grid-3, .cards-grid {
+    display: grid;
+    grid-template-columns: 1fr !important;
+    gap: 14px;
+  }
+
+  /* 4) Work Experience items: reduce badges size & padding */
+  .badges { gap: 6px; }
+  .badge { padding: 6px 10px; font-size: 12px; }
+
+  /* 5) Ensure the chat bubble clears iOS bottom bar */
+  .chat-fab, .chat-toggle {
+    bottom: calc(16px + env(safe-area-inset-bottom));
+    right: 16px;
+  }
+  .chat-window {
+    bottom: calc(84px + env(safe-area-inset-bottom)); /* above iOS toolbar */
+  }
+}
+
+
+/* Mobile drawer fix */
+.drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.55);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s ease;
+  z-index: 1100;                 /* <-- above page */
+}
+
+.drawer {
+  position: fixed;
+  top: 0;
+  right: -280px;                 /* hidden off-screen */
+  height: 100vh;
+  width: 280px;
+  background: #0f1115;           /* readable on dark */
+  color: #fff;
+  padding: 16px;
+  overflow-y: auto;
+  border-left: 1px solid rgba(255,255,255,.08);
+  box-shadow: -12px 0 28px rgba(0,0,0,.45);
+  transition: right .25s ease;
+  z-index: 1200;                 /* <-- above backdrop & hero */
+}
+
+/* When open */
+.drawer-open .drawer       { right: 0; }
+.drawer-open .drawer-backdrop { opacity: 1; pointer-events: auto; }
+
+/* Prevent background scrolling when drawer is open */
+body.drawer-open { overflow: hidden; }
+
+/* Make sure hero overlays never cover the drawer */
+.hero, .hero * { z-index: auto; }
+.hero::before, .hero::after { z-index: 0 !important; }
+
+
+
+/* Ensure mobile drawer sits above header/content */
+.mobile-drawer { z-index: 1200; }            /* container itself */
+.drawer-backdrop {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,.55);
+  opacity: 0; pointer-events: none;
+  transition: opacity .22s ease;
+  z-index: 1200;
+}
+.mobile-drawer.open .drawer-backdrop {
+  opacity: 1; pointer-events: auto;
+}
+
+/* TOP-SHEET drawer panel (full width) */
+.drawer-panel{
+  position: fixed; left: 0; right: 0; top: 0;
+  width: 100%; max-height: 60vh;             /* nice “sheet” height */
+  background: var(--bg, #fff);
+  color: var(--text, #0b0b0b);
+  box-shadow: 0 12px 28px rgba(0,0,0,.35);
+  border-bottom: 1px solid var(--border, rgba(0,0,0,.12));
+  padding: 14px 18px 18px;
+  display: flex; flex-direction: column; gap: 12px;
+  transform: translateY(-100%);              /* slide from TOP */
+  transition: transform .25s ease;
+  z-index: 1210;                             /* above backdrop */
+}
+.mobile-drawer.open .drawer-panel { transform: translateY(0); }
+
+/* Close (✕) button stays visible */
+.drawer-close{
+  align-self: flex-end;
+  background: none; border: 0; font-size: 20px; cursor: pointer;
+}
+
+/* Links look like a menu list */
+.drawer-link{
+  display: block; padding: 12px 6px; border-radius: 10px;
+}
+.drawer-link:hover{ background: var(--btn-hover); }
