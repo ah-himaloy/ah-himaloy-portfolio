@@ -1081,3 +1081,25 @@ body.drawer-open { overflow: hidden; }
   color: currentColor !important;
   fill: currentColor !important;
 }
+
+
+
+
+
+
+/* Professional page – make the menu tiles stack on small screens */
+@media (max-width: 900px){
+  .menu-grid{
+    grid-template-columns: repeat(2, minmax(0, 1fr));  /* 2 across on tablets */
+    max-width: 640px;
+  }
+}
+@media (max-width: 560px){
+  .menu-grid{
+    grid-template-columns: 1fr;                        /* 1 per row on phones */
+    max-width: 420px;
+  }
+}
+
+/* Prevent any child from forcing overflow */
+.menu-grid > *{ min-width: 0; width: 100%; }
