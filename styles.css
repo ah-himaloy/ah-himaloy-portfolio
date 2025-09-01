@@ -1090,3 +1090,40 @@ body.drawer-open { overflow: hidden; }
   background: #fff !important;              /* don’t turn blue/grey on hover */
   border-color: rgba(0,0,0,.28) !important;
 }
+
+
+
+/* === Drawer text only (no white pills) === */
+
+/* Make the menu items text white (in dark theme) and stop default blue links */
+.drawer-link,
+.drawer-link:link,
+.drawer-link:visited{
+  color: var(--text) !important;     /* white in dark mode, black in light */
+  text-decoration: none;
+}
+.drawer-link:hover{
+  background: var(--btn-hover);
+  color: var(--text) !important;
+}
+
+/* Make the close “✕” just white text, transparent background */
+.drawer-close{
+  background: transparent !important;
+  color: var(--text) !important;      /* white in dark mode */
+  border: 0 !important;
+  width: auto; height: auto;          /* keep it as text */
+  line-height: 1;
+}
+
+/* Return the header hamburger to normal (no white pill) */
+.menu-btn{
+  background: transparent !important;
+  color: var(--text) !important;      /* icon uses this color */
+  border: 1px solid var(--btn-border) !important;
+  box-shadow: none !important;
+}
+.menu-btn svg{
+  color: currentColor !important;
+  fill: currentColor !important;
+}
