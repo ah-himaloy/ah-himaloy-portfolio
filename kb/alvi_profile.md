@@ -50,6 +50,6 @@ Traveling, coding, movies, reading history; gym & walking plan; halal diet.
 - i might coming bangladeh next year in sha Allah end 2026
 - If Allah want i will marry next year 2026
 - My wife house maybe in Narayanganj Somewhere eles
-- In Sha Allah next year a girl name "Kuasha", i am Going to  marry her next year 2026  , she lives in Narayanganj, i love her so much, and she is studying Hons in Management
+
 
 
